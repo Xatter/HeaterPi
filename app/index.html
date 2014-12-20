@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type='text/javascript' src='scripts/angular.min.js'></script>
+  <script type='text/javascript' src='scripts/heater.js'></script>
+  <script type='text/javascript' src='scripts/jquery-1.11.2.min.js'></script>
+  <script type='text/javascript' src='scripts/bootstrap.min.js'></script>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
+</head>
+<body ng-app="heaterApp">
+  <div ng-controller="HeaterCtrl">
+    <p>This is a test</p>
+    <div>Does angular work? <div>{{answer}}</div></div>
+    <button ng-click="on()" class="btn btn-primary">On</button>
+    <button ng-click="off()" class="btn btn-danger">Off</button>
+  </div>
+</body>
+</html>
