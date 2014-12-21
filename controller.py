@@ -1,13 +1,14 @@
-import RPi.GPIO as GPIO
+import smbus
 import time
 
-GPIO.setmode(GPIO.BOARD)
+bus = smbus.SMBus(1)
+address = 0x02
 
-off_button = 3
-on_button = 5
+def readNumber():
+	number = bus.read_byte(address)
+	return number
 
-GPIO.setup(off_button, GPIO.OUT)
-GPIO.output(off_button, 1)
-
-time.sleep(1)
-GPIO.output(off_button, 0)
+while True:
+	time.sleep(1)
+	number = readNumber()
+	print "Arduino: ", number

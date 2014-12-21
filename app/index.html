@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
 </head>
 <body ng-app="heaterApp">
-  <div ng-controller="HeaterCtrl">
-    <p>This is a test</p>
-    <div>Does angular work? <div>{{answer}}</div></div>
+  <div ng-controller="HeaterCtrl" class="container">
+    <h1>Heater Pi 1.0</h1>
+    <div> Current Temperature {{temperature}} F </div>
     <button ng-click="on()" class="btn btn-primary">On</button>
     <button ng-click="off()" class="btn btn-danger">Off</button>
   </div>
