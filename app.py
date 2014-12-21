@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
-off_button = 11
-on_button = 13
+on_button = 11
+off_button = 13
 
 GPIO.setup(off_button, GPIO.OUT)
 GPIO.setup(on_button, GPIO.OUT)
@@ -16,28 +16,28 @@ bus = smbus.SMBus(0)
 address = 0x60
 
 class HeaterController:
-	exposed = True
-	def GET(self):
-		temperature = bus.read_byte_data(address, 1)
-		return str(temperature)
+    exposed = True
+    def GET(self):
+        temperature = bus.read_byte_data(address, 1)
+        return str(temperature)
 
-	def POST(self):
-		GPIO.output(off_button, 1)
-		time.sleep(1)
-		GPIO.output(off_button, 0)
+    def POST(self):
+        GPIO.output(off_button, 1)
+        time.sleep(1)
+        GPIO.output(off_button, 0)
 
-	def PUT(self):
-		GPIO.output(on_button, 1)
-		time.sleep(1)
-		GPIO.output(on_button, 0)
+    def PUT(self):
+        GPIO.output(on_button, 1)
+        time.sleep(1)
+        GPIO.output(on_button, 0)
 
 class Root:
-	heater = HeaterController()
+    heater = HeaterController()
 
-	@cherrypy.expose
-	def index(self):
-		f = open('app/index.html')
-		return f.readlines()
+    @cherrypy.expose
+    def index(self):
+        f = open('app/index.html')
+        return f.readlines()
 
 
 def config():
@@ -63,10 +63,10 @@ def config():
     return config
 
 cherrypy.config.update({
-	'server.socket_host':'0.0.0.0',
-	'server.socket_port':int(os.environ.get('PORT','80')),
-	'log.error_file':'error.log',
-	'log.screen': True
+    'server.socket_host':'0.0.0.0',
+    'server.socket_port':int(os.environ.get('PORT','80')),
+    'log.error_file':'error.log',
+    'log.screen': True
 })
 
 cherrypy.quickstart(Root(), '/', config=config())

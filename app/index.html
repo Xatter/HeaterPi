@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <script type='text/javascript' src='scripts/angular.min.js'></script>
   <script type='text/javascript' src='scripts/heater.js'></script>
   <script type='text/javascript' src='scripts/jquery-1.11.2.min.js'></script>
@@ -10,10 +11,18 @@
 </head>
 <body ng-app="heaterApp">
   <div ng-controller="HeaterCtrl" class="container">
-    <h1>Heater Pi 1.0</h1>
-    <div> Current Temperature {{temperature}} F </div>
-    <button ng-click="on()" class="btn btn-primary">On</button>
-    <button ng-click="off()" class="btn btn-danger">Off</button>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <h1>Heater Pi 1.0</h1>
+      </div>
+      <div class="col-xs-12"> Current Temperature {{temperature}} F </div>
+      <div class="col-xs-12 col-sm-2">
+        <button ng-click="on()" class="btn btn-large btn-block btn-primary">On</button>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <button ng-click="off()" class="btn btn-large btn-block btn-danger">Off</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
