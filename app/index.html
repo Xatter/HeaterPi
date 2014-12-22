@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <script type='text/javascript' src='scripts/angular.min.js'></script>
-  <script type='text/javascript' src='scripts/heater.js'></script>
-  <script type='text/javascript' src='scripts/jquery-1.11.2.min.js'></script>
-  <script type='text/javascript' src='scripts/bootstrap.min.js'></script>
-  <link rel="stylesheet" href="styles/bootstrap.min.css">
-  <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
-</head>
-<body ng-app="heaterApp">
-  <div ng-controller="HeaterCtrl" class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <h1>Heater Pi 1.0</h1>
-      </div>
-      <div class="col-xs-12"> Current Temperature {{temperature}} F </div>
-      <div class="col-xs-12 col-sm-2">
-        <div class="panel">
-          <button ng-click="on()" class="btn btn-large btn-block btn-primary">On</button>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type='text/javascript' src='scripts/angular.min.js'></script>
+    <script type='text/javascript' src='scripts/heater.js'></script>
+    <script type='text/javascript' src='scripts/jquery-1.11.2.min.js'></script>
+    <script type='text/javascript' src='scripts/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
+  </head>
+  <body ng-app="heaterApp">
+    <div ng-controller="HeaterCtrl" class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Heater Pi 1.0</h1>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-2">
-        <div class="panel">
-          <button ng-click="off()" class="btn btn-large btn-block btn-danger">Off</button>
+        <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-12"> 
+          <div class="jumbotron col-xs-6">
+            <h1>{{temperature}} &deg;F</h1>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="panel">
+            <button ng-click="on()" class="btn btn-large btn-block btn-primary">On</button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="panel">
+            <button ng-click="off()" class="btn btn-large btn-block btn-danger">Off</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
